@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rematched - Cyberpunk UI</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 1: SPLASH SCREEN                    -->
+    <!-- ========================================== -->
+    <div id="splash-screen" class="screen active">
+        <div class="auth-container neon-panel">
+            <h1 class="form-header pink-text" style="font-size: 3rem; text-align: center; margin-bottom: 30px;">RE | MATCHED</h1>
+            <p style="color: #ccc; text-align: center; font-family: 'Rajdhani'; margin-bottom: 40px; font-size: 1.2rem;">INITIATE CONNECTION</p>
+            
+            <button type="button" id="nav-login-btn" class="submit-btn" style="background: transparent; border: 2px solid #00f3ff; color: #00f3ff; margin-bottom: 15px;">LOGIN</button>
+            <button type="button" id="nav-signup-btn" class="submit-btn" style="background: transparent; border: 2px solid #ff0055; color: #ff0055;">CREATE ACCOUNT</button>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 2: LOGIN SCREEN                     -->
+    <!-- ========================================== -->
+    <div id="login-screen" class="screen hidden">
+        <form class="auth-container neon-panel cyan-panel">
+            <h2 class="form-header cyan-text">SYSTEM LOGIN</h2>
+            <div class="input-group">
+                <label class="input-label cyan-label">EMAIL</label>
+                <input type="email" id="login-email" class="neon-input cyan-input" placeholder="Enter Email" required>
+            </div>
+            <div class="input-group">
+                <label class="input-label cyan-label">PASSWORD</label>
+                <input type="password" id="login-password" class="neon-input cyan-input" placeholder="Enter Password" required>
+            </div>
+            <button type="button" id="login-submit-btn" class="submit-btn" style="margin-top: 20px;">ACCESS MAINFRAME</button>
+            <button type="button" id="forgot-password-btn">FORGOT PASSWORD?</button>
+            <button type="button" class="back-btn" style="margin-top: 15px; background: none; border: none; color: #777; cursor: pointer; font-family: 'Orbitron'; width: 100%;">← ABORT</button>
+        </form>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 3: SIGN UP SCREEN                   -->
+    <!-- ========================================== -->
+    <div id="signup-screen" class="screen hidden">
+        <form class="auth-container neon-panel pink-panel">
+            <h2 class="form-header pink-text">NEW USER REGISTRATION</h2>
+            <div class="input-group">
+                <label class="input-label pink-label">EMAIL</label>
+                <input type="email" id="signup-email" class="neon-input pink-input" placeholder="Enter Email" required>
+            </div>
+            <div class="input-group">
+                <label class="input-label pink-label">PASSWORD</label>
+                <input type="password" id="signup-password" class="neon-input pink-input" placeholder="Create Password (Min 6 Chars)" required>
+            </div>
+            <button type="button" id="signup-submit-btn" class="submit-btn" style="margin-top: 20px;">REGISTER IDENTITY</button>
+            <button type="button" class="back-btn" style="margin-top: 15px; background: none; border: none; color: #777; cursor: pointer; font-family: 'Orbitron'; width: 100%;">← ABORT</button>
+        </form>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 4: PROFILE SETUP                    -->
+    <!-- ========================================== -->
+    <div id="setup-screen" class="screen hidden">
+        <div class="ui-container">
+            
+            <!-- LEFT SIDE: The Player Profile -->
+            <div class="neon-form-panel cyan-panel">
+                <h2 class="form-header cyan-text">PLAYER PROFILE</h2>
+                <form>
+                    <div class="input-group">
+                        <label class="input-label cyan-label">USERNAME</label>
+                        <input type="text" id="username" class="neon-input cyan-input" placeholder="Enter Username" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label cyan-label">NETWORK HANDLE / IN-GAME ID</label>
+                        <input type="text" id="network-handle" class="neon-input cyan-input" placeholder="PSN, Xbox, or Game ID" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label cyan-label">SEX</label>
+                        <div class="radio-group">
+                            <label class="radio-container"><input type="radio" name="sex" value="Male" checked><div class="custom-radio cyan-radio"></div><span class="radio-label-text">Male</span></label>
+                            <label class="radio-container"><input type="radio" name="sex" value="Female"><div class="custom-radio cyan-radio"></div><span class="radio-label-text">Female</span></label>
+                            <label class="radio-container"><input type="radio" name="sex" value="Non-Binary"><div class="custom-radio cyan-radio"></div><span class="radio-label-text">Non-Binary</span></label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label cyan-label">AGE</label>
+                        <input type="number" id="age" class="neon-input cyan-input" placeholder="18+" min="18" style="width: 120px;" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label cyan-label">ORIENTATION</label>
+                        <div class="radio-group">
+                            <label class="radio-container"><input type="radio" name="orientation" value="Straight" checked><div class="custom-radio cyan-radio"></div><span class="radio-label-text">Straight</span></label>
+                            <label class="radio-container"><input type="radio" name="orientation" value="Gay/Lesbian"><div class="custom-radio cyan-radio"></div><span class="radio-label-text">Gay/Lesbian</span></label>
+                            <label class="radio-container"><input type="radio" name="orientation" value="Bi"><div class="custom-radio cyan-radio"></div><span class="radio-label-text">Bi</span></label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="confirm-btn" class="submit-btn">CONFIRM IDENTITY</button>
+                </form>
+            </div>
+
+            <!-- RIGHT SIDE: Game Search MVP -->
+            <div class="neon-search-panel pink-panel">
+                <span class="floating-text text-console">SYSTEM</span>
+                <span class="floating-text text-player">DATABASE</span>
+                <span class="floating-text text-choice">SEARCH</span>
+                <span class="floating-text text-match">MATCH</span>
+
+                <div class="search-content">
+                    <h2 class="form-header pink-text">LOADOUT</h2>
+                    <div class="search-section">
+                        <label class="input-label pink-label">1. SELECT PLATFORM</label>
+                        <div class="platformsDiv">
+                            <i class="fas fa-desktop consoleIcon" id="deskTop"></i>
+                            <i class="fab fa-playstation consoleIcon" id="playStation"></i>
+                            <i class="fab fa-xbox consoleIcon" id="xBox"></i>
+                            <i class="fas fa-gamepad consoleIcon" id="switch"></i>
+                            <i class="fab fa-apple consoleIcon" id="ios"></i>
+                            <i class="fab fa-android consoleIcon" id="android"></i>
+                        </div>
+                        <div class="spinnerOne hide pink-text" style="margin-top: 10px; font-size: 0.9rem;">CONNECTING TO SERVER...</div>
+                    </div>
+
+                    <div class="search-section searchBarChoice1 hide" id="bar1">
+                        <label class="input-label pink-label">2. SEARCH DATABASE</label>
+                        <div style="position: relative;">
+                            <input autocomplete="off" type="text" class="firstChoiceInput neon-input pink-input" placeholder="Initiate query...">
+                            <ul class="auto-complete neon-dropdown"></ul>
+                        </div>
+                    </div>
+
+                    <div class="search-section">
+                        <label class="input-label pink-label">3. TARGET ACQUIRED</label>
+                        <div class="choiceDisplay">
+                            <div style="text-align: center; color: #555; font-style: italic; margin-top: 20px;">Awaiting Query...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 5: MAIN DASHBOARD                   -->
+    <!-- ========================================== -->
+    <div id="dashboard-screen" class="screen hidden">
+        <div class="auth-container neon-panel" style="border-color: #aa00ff; text-align: center; max-width: 800px; width: 90%;">
+            <h1 class="form-header" style="color: #aa00ff; font-size: 2.5rem; margin-bottom: 20px;">MAINFRAME</h1>
+            
+            <!-- This is where the JS will inject the match cards -->
+            <div id="matches-container" class="matches-grid">
+                <p style="color: #ccc; font-family: 'Rajdhani'; font-size: 1.2rem;">Searching for compatible targets...</p>
+            </div>
+            
+            <button type="button" id="logout-btn" class="submit-btn" style="margin-top: 40px; background: transparent; border: 1px solid #777; color: #777;">DISCONNECT</button>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PLAY DATE MODAL                            -->
+    <!-- ========================================== -->
+    <div id="date-modal" class="screen hidden" style="background: rgba(0,0,0,0.9); position: fixed; top: 0; left: 0; z-index: 1000;">
+        <div class="auth-container neon-panel pink-panel" style="max-width: 500px; text-align: center;">
+            <h2 class="form-header pink-text">PROPOSE PLAY DATE</h2>
+            <p style="color: #ccc; font-family: 'Rajdhani'; margin-bottom: 20px;">Send a "Let's Play!" invite with 3 potential times.</p>
+            
+    <!-- OPTION 1 -->
+            <div class="input-group" style="text-align: left; margin-bottom: 15px;">
+                <label class="input-label pink-label">OPTION 1</label>
+                <div style="display: flex; gap: 10px;">
+                    <select id="opt1-month" class="neon-input pink-input"></select>
+                    <select id="opt1-day" class="neon-input pink-input"></select>
+                    <select id="opt1-time" class="neon-input pink-input"></select>
+                </div>
+            </div>
+
+            <!-- OPTION 2 -->
+            <div class="input-group" style="text-align: left; margin-bottom: 15px;">
+                <label class="input-label pink-label">OPTION 2</label>
+                <div style="display: flex; gap: 10px;">
+                    <select id="opt2-month" class="neon-input pink-input"></select>
+                    <select id="opt2-day" class="neon-input pink-input"></select>
+                    <select id="opt2-time" class="neon-input pink-input"></select>
+                </div>
+            </div>
+
+            <!-- OPTION 3 -->
+            <div class="input-group" style="text-align: left; margin-bottom: 25px;">
+                <label class="input-label pink-label">OPTION 3</label>
+                <div style="display: flex; gap: 10px;">
+                    <select id="opt3-month" class="neon-input pink-input"></select>
+                    <select id="opt3-day" class="neon-input pink-input"></select>
+                    <select id="opt3-time" class="neon-input pink-input"></select>
+                </div>
+            </div>
+
+            <button type="button" id="send-invite-btn" class="submit-btn" style="background: transparent; border: 2px solid #ff0055; color: #ff0055;">"LET'S PLAY!"</button>
+            <button type="button" id="cancel-invite-btn" class="back-btn" style="margin-top: 15px; background: none; border: none; color: #777; cursor: pointer; font-family: 'Orbitron'; width: 100%;">← ABORT</button>
+        </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+
+</body>
+</html>
